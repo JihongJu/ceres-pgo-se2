@@ -144,13 +144,13 @@ int main(int argc, char** argv) {
       << "Error reading the file: " << FLAGS_input;
   std::cout << "Number of poses: " << poses.size() << '\n';
   std::cout << "Number of constraints: " << constraints.size() << '\n';
-  CHECK(ceres::examples::OutputPoses("poses_original.txt", poses))
-      << "Error outputting to poses_original.txt";
+  CHECK(ceres::examples::OutputPoses("outputs/poses_original.txt", poses))
+      << "Error outputting to outputs/poses_original.txt";
   ceres::Problem problem;
   ceres::examples::BuildOptimizationProblem(constraints, &poses, &problem);
   CHECK(ceres::examples::SolveOptimizationProblem(&problem))
       << "The solve was not successful, exiting.";
-  CHECK(ceres::examples::OutputPoses("poses_optimized.txt", poses))
-      << "Error outputting to poses_original.txt";
+  CHECK(ceres::examples::OutputPoses("outputs/poses_optimized.txt", poses))
+      << "Error outputting to outputs/poses_optimized.txt";
   return 0;
 }
