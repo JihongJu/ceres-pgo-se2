@@ -45,8 +45,8 @@ namespace examples {
 // if there is a duplicate entry.
 template <typename Pose, typename Allocator>
 bool ReadVertex(std::ifstream* infile,
-                std::map<int, Pose, std::less<int>, Allocator>* poses) {
-  int id;
+                std::map<std::string, Pose, std::less<std::string>, Allocator>* poses) {
+  std::string id;
   Pose pose;
   *infile >> id >> pose;
 
@@ -100,7 +100,7 @@ void ReadConstraint(std::ifstream* infile,
 template <typename Pose, typename Constraint, typename MapAllocator,
           typename VectorAllocator>
 bool ReadG2oFile(const std::string& filename,
-                 std::map<int, Pose, std::less<int>, MapAllocator>* poses,
+                 std::map<std::string, Pose, std::less<std::string>, MapAllocator>* poses,
                  std::vector<Constraint, VectorAllocator>* constraints) {
   CHECK(poses != NULL);
   CHECK(constraints != NULL);

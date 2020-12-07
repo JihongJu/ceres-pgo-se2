@@ -65,8 +65,8 @@ inline std::istream& operator>>(std::istream& input, Pose2d& pose) {
 // The constraint between two vertices in the pose graph. The constraint is the
 // transformation from vertex id_begin to vertex id_end.
 struct Constraint2d {
-  int id_begin;
-  int id_end;
+  std::string id_begin;
+  std::string id_end;
 
   double x;
   double y;
